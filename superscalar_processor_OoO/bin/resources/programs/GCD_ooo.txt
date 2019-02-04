@@ -1,0 +1,81 @@
+main:
+	addi $t2, $zero, 268503992
+	addi $t3, $zero, 268504992
+	addi $t4, $zero, 268505992
+	lw $a0, 0($t2)
+	lw $a1, 0($t3)
+
+GCD:
+	beq $a0, $a1, end
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	slt $t0, $a0, $a1
+	nop
+	beq $t0, $zero, swap2
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	j swap1
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+swap1:
+	addi $t1, $a0, 0
+	nop
+	addi $a0, $a1, 0
+	nop
+	nop
+	nop
+	nop
+	nop
+	addi $a1, $t1, 0
+	j GCD
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+swap2:
+	sub $t1, $a0, $a1
+	nop
+	addi $a0, $t1, 0
+	j GCD
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+end:
+	addi $v0, $a0, 0
+	sw $a0, 0($t4)
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop

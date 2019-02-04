@@ -1,0 +1,100 @@
+main:
+	addi $t0, $zero, 1
+	addi $a0, $zero, 268500992
+	addi $a1, $zero, 10
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+outer:
+	beq $t0, $zero, end
+	nop
+	nop
+	nop
+	nop
+	nop
+	addi $s0, $zero, 1
+	addi $t0, $zero, 0
+	addi $a2, $a0, 4
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+inner:
+	beq $s0, $a1, outer
+	nop
+	nop
+	nop
+	nop
+	nop
+	lw $s1, -4($a2)
+	lw $s2, 0($a2)
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	slt $t1, $s1, $s2
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	beq $t1, $zero, swap
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	addi $s0, $s0, 1
+	addi $a2, $a2, 4
+	j inner
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+swap:
+	sw $s1, 0($a2)
+	sw $s2, -4($a2)
+	addi $t0, $zero, 1
+	addi $s0, $s0, 1
+	addi $a2, $a2, 4
+	j inner
+	nop
+	nop
+	nop
+	nop
+	nop
+
+end:
+	addi $v1, $zero, 1
+	nop
+	nop
+	nop
+	nop
+	nop

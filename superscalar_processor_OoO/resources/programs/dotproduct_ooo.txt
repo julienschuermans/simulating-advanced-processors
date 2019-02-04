@@ -1,0 +1,38 @@
+main:
+	addi $s0, $zero, 0
+	addi $s1, $zero, 10
+	addi $s2, $zero, 0
+	addi $a0, $zero, 268500992
+	addi $a1, $zero, 268501992
+	addi $a2, $zero, 268502992
+
+for:
+	beq $s0, $s1, end
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	lw $t1, 0($a1)
+	lw $t2, 0($a2)
+	addi $s0, $s0, 1
+	mul $t0, $t1, $t2
+	addi $a1, $a1, 4
+	addi $a2, $a2, 4
+	add $s2, $s2, $t0
+	j for
+	nop
+	nop
+	nop
+	nop
+	nop
+
+end:
+	addi $v0, $s2, 0
+	sw $s2, 0($a0)
+	nop
+	nop
+	nop
+	nop

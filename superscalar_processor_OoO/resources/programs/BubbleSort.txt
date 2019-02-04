@@ -1,0 +1,31 @@
+main:
+	addi $a0, $zero, 268500992
+	addi $a1, $zero, 10
+	addi $t0, $zero, 1
+
+outer:
+	beq $t0, $zero, end
+	addi $t0, $zero, 0
+	addi $a2, $a0, 4
+	addi $s0, $zero, 1
+
+inner:
+	beq $s0, $a1, outer
+	lw $s1, -4($a2)
+	lw $s2, 0($a2)
+	slt $t1, $s1, $s2
+	beq $t1, $zero, swap
+	addi $s0, $s0, 1
+	addi $a2, $a2, 4
+	j inner
+
+swap:
+	sw $s1, 0($a2)
+	sw $s2, -4($a2)
+	addi $t0, $zero, 1
+	addi $s0, $s0, 1
+	addi $a2, $a2, 4
+	j inner
+
+end:
+	addi $v1, $zero, 1
